@@ -5,18 +5,18 @@ import { Storage } from "../interfaces/storage";
 import { registerUpload } from "../services/storage.service";
 import { handleHttp } from "../utils/error.handle";
 
-const getFile = async (req: RequestExt, res: Response) => {
+const getFile = async (request: RequestExt, response: Response) => {
   try {
-    const { user, file } = req;
+    const { user, file } = request;
     const dataToRegister: Storage = {
       fileName: `${file?.filename}`,
       idUser: `${user?.id}`,
       path: `${file?.path}`,
     };
-    const response = await registerUpload(dataToRegister);
-    res.send(response);
+    const responseRegister = await registerUpload(dataToRegister);
+    response.send(responseRegister);
   } catch (e) {
-    handleHttp(res, "ERROR_GET_FILE");
+    handleHttp(response, "ERROR_GET_FILE");
   }
 };
 

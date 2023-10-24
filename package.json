@@ -4,7 +4,9 @@
   "description": "Node js Api with Typescript",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./src/app.ts"
+    "dev": "nodemon ./src/app.ts",
+    "build": "tsc",
+    "sta©©©rt": "node ./dist/app.js"
   },
   "repository": {
     "type": "git",
